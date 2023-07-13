@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Email Template</title>
+</head>
+<body>
+    <h4>Hi,</h4>
+    <p>This is regarding your resume parsing your id is <span th:text="${id}"></span> and your userId is <span th:text="${userId}"></span></p>
+    <p th:if="${highParsingTime==true}">Your parsing time is greater than 3s so kindly do make changes in your resume</p>
+    <p th:if="${highPageCount==true}">Your page count is greater than 5 please reduce your page count</p>
+     <img src='cid:warn'alt="" th:alt="warning" />
+</body>
+</html>
