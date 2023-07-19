@@ -19,4 +19,5 @@ public class EmailController {
 		ed.setRecipients(emails);
 		return "email Sent";
 	}
+	
 }

@@ -18,13 +18,13 @@ public class ClientlogtrackingsystemApplication {
 		ConfigurableApplicationContext context = SpringApplication.run(ClientlogtrackingsystemApplication.class, args);
 		ResumeLogsRepository resumeLogsRepository = context.getBean(ResumeLogsRepository.class);
 		// Fetch resume logs by user ID
-		int userId = 186;
-		List<ResumeLogs> resumeLogsList = resumeLogsRepository.findByUserId(userId);
+//		int userId = 186;
+//		List<ResumeLogs> resumeLogsList = resumeLogsRepository.findByMonthAndYear(186, "2022", "04");
 
 		// Logging the retrieved resume logs
-		logger.info("Resume logs for user ID {}: {}", userId, resumeLogsList);
+//		logger.info("Resume logs for user ID {}: {}", userId);
 
-		// Print the retrieved resume logs
-		resumeLogsList.forEach(e -> System.out.println(e));
+//		 Print the retrieved resume logs
+//		resumeLogsList.forEach(e -> System.out.println(e));
 	}
 }

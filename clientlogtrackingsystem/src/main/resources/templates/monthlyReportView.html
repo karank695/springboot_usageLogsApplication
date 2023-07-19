@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html html xmlns:th="https://thymeleaf.org">
+  <head>
+	  <link  th:href="@{/css/monthlyReport.css}" rel="stylesheet">
+  </head>
+  <body>
+	 <div class="headingBox">
+		<div id="left">
+			<span id="heading"> Usage Report @Month</span>
+			 <br><span class="userId">userId:&nbsp;</span><span class="userId">186</span>
+			 <span id="monthYear" th:text="${date}"></span>
+		</div>
+		<div id="date">
+		 <div>Date</div>
+		 <div th:text="${currentDate}"></div>
+		</div>
+	 </div>
+	  
+  <div id="tableContainer">
+	  <table>
+		  <caption>Usage Report</caption>
+		 <tr>
+			 <th>Total Usage</th>
+			 <th>Pass Count</th>
+			 <th>Fail Count</th>
+			 <th>No. pdf</th>
+			 <th>No. doc</th>
+			 <th>Jd(type)</th>
+			 <th>Resume(type)</th>
+			 <th>PageCountGt5</th>
+			 <th>ParsingTimeGT4</th>
+			 <th>Usage</th>
+		     </tr> 
+             <tr>
+			 		 			 <td th:text="${DCR.getTotalUsage()}"></td>
+			 		 			 <td th:text="${DCR.getPassed()}"></td>
+			 		 			 <td th:text="${DCR.getFailed()}"></td>
+			 		 			 <td th:text="${DCR.getPdf()}"></td>
+			 		 			 <td th:text="${DCR.getDoc()}"></td>
+			 		 			 <td th:text="${DCR.getJd()}"></td>
+			 		 			 <td th:text="${DCR.getResume()}"></td>
+			 		 			 <td th:text="${DCR.getPageCountGt5()}"></td>
+			 		 			 <td th:text="${DCR.getParsingTimeGt4()}"></td>
+			 		 			 <td th:text="${DCR.getUsage()}"></td>
+		    </tr>
+	  </table>
+  </div>
+  </body>
+    <div id="footer">
+	  <i>Karan Kumar</i><br>
+	  <i>7766861650</i>
+  </div>
+</html>

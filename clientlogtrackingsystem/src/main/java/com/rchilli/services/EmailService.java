@@ -12,5 +12,5 @@ public interface EmailService {
  
     // Method
     // To send an email with attachment
-    String sendMailWithAttachment(EmailDetails details,Context context);
+    String sendMailWithAttachment(EmailDetails details,Context context,String templateName,String fileName);
 }
