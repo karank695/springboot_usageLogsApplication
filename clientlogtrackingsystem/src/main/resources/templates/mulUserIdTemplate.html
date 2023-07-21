@@ -1,13 +1,72 @@
 <!DOCTYPE html>
 <html html xmlns:th="https://thymeleaf.org">
   <head>
-	  <link  th:href="@{/css/monthlyReport.css}" rel="stylesheet">
+	  <style>
+		   *{
+		  margin:0;
+		  padding:0;
+		  box-sizing: border-box;
+	  }
+	  .headingBox{
+		  background-color: rgb(0, 64, 64);
+		  height:100px;
+		  padding:15px 10px;
+		
+	  }
+	  #left{
+		  font-size: 30px;
+		  color:white;
+		  float:left;
+	  }
+	  .userId{
+		  font-size: 20px;
+		  color:rgb(255, 128, 64);
+	  }
+	  #date{
+		  font-size: 21px;
+		  color:beige;
+		  float:right;
+	  }
+	  #monthYear{
+		  font-size: 20px;
+		  color:rgb(255, 128, 64);
+		  margin-left:10px;
+	  }
+	  table,th,tr,td{
+		  border:1px solid;
+		  border-collapse: collapse;
+		  padding:5px;
+		  font-size:10px;
+	  }
+	  td{
+		  text-align: center;
+		  
+	  }
+	  table{
+		  width:100%;
+		  margin:0 10px 0 10px;
+	  }
+	  #tableContainer{
+		  display: flex;
+		  justify-content: center;
+		  margin-top:20px;
+	  }
+	  caption{
+		  color: rgb(0, 64, 64);
+		  font-size: 20px;
+	  }
+ #footer{
+		  position:absolute;
+		  bottom:20px;
+		  left:10px;
+	  }
+	  </style>
   </head>
   <body>
 	 <div class="headingBox">
 		<div id="left">
 			<span id="heading"> Usage Report @Month</span>
-			 <br><span class="userId">userId:&nbsp;186</span>
+	         <br>
 			 <span id="monthYear" th:text="${date}"></span>
 		</div>
 		<div id="date">
@@ -20,6 +79,7 @@
 	  <table>
 		  <caption>Usage Report</caption>
 		 <tr>
+			 <th>UserId</th>
 			 <th>Total Usage</th>
 			 <th>Pass Count</th>
 			 <th>Fail Count</th>
@@ -31,7 +91,8 @@
 			 <th>ParsingTimeGT4</th>
 			 <th>Usage</th>
 		     </tr> 
-             <tr>
+             <tr th:each="DCR: ${DCRList}">
+			 <td th:text="${DCR.getUserId}"></td>
 			 <td th:text="${DCR.getTotalUsage()}"></td>
 			 <td th:text="${DCR.getPassed()}"></td>
 			 <td th:text="${DCR.getFailed()}"></td>
@@ -45,9 +106,9 @@
 		    </tr>
 	  </table>
   </div>
-  </body>
     <div id="footer">
 	  <i>Karan Kumar</i><br>
 	  <i>7766861650</i>
   </div>
+  </body>
 </html>

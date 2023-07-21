@@ -1,6 +1,7 @@
 package com.rchilli.services;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -19,9 +20,9 @@ import com.rchilli.repository.ResumeLogsRepository;
 import com.rchilli.serviceImp.EmailServiceImpl;
 
 @Service
-public class ResumeLogsUserReportService {
+public class LogsUserReportService {
 
-	private static final Logger logger = LoggerFactory.getLogger(ResumeLogsUserReportService.class);
+	private static final Logger logger = LoggerFactory.getLogger(LogsUserReportService.class);
 	@Value("${app.recipients}")
 	private List<String> recipients;
 
@@ -40,8 +41,6 @@ public class ResumeLogsUserReportService {
 	@Autowired
 	private EmailServiceImpl emailServiceImpl;
 	
-	@Value("${app.recipients}")
-	private List<String> recipientsList;
 	public DetailsOfClientReport getReport(int userId, String date) {
 		List<ResumeLogs> lr=null;
 		DetailsOfClientReport dr=null;
@@ -69,7 +68,7 @@ public class ResumeLogsUserReportService {
 		
 		return dr;
 	}
-	public DetailsOfClientReport getReportByMonthAndYear(int userId, String year,String month) {
+	public DetailsOfClientReport getReport(int userId, String year,String month) {
 		List<ResumeLogs> lr=null;
 		DetailsOfClientReport mdr=null;
 	    lr=resumeLogsRepository.findByMonthAndYear(userId, year, month);
@@ -105,5 +104,38 @@ public class ResumeLogsUserReportService {
 		}
 		
 		return mdr;
+	}
+	
+	public List<DetailsOfClientReport> getReport(List<Integer> userIdList, String year,String month) {
+		List<ResumeLogs> lr=null;
+		DetailsOfClientReport mdr=null;
+		List<DetailsOfClientReport> mdrList=new ArrayList<>();
+		
+		for(int i=0;i<userIdList.size();i++) {
+			int curUserId=userIdList.get(i);
+			lr=resumeLogsRepository.findByMonthAndYear(curUserId, year, month);
+			if(!lr.isEmpty()) {
+				mdr=dataAnalyserService.dataProcess(lr,curUserId);
+				if(mdr!=null)
+				mdrList.add(mdr);
+			}
+		}
+		Context context= new Context();
+		context.setVariable("DCRList", mdrList);
+		Date cd=new Date();
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+	    String s = df.format(cd);
+	    context.setVariable("currentDate", s);
+	    String date=""+month+"/"+year;
+	    context.setVariable("date", date);
+	    String fileName="monthReportMulUserId"+cd.getTime();
+		String processedHtml=springTemplateEngine.process("mulUserIdTemplate", context);
+		documentGeneratorService.htmlToPdf(processedHtml, fileName);
+		EmailDetails ed=new EmailDetails();
+		ed.setRecipients(recipients);
+		Context mailContext=new Context();
+		logger.info("mail sending with attachment is in process");
+		emailServiceImpl.sendMailWithAttachment(ed, mailContext, "emailTemplate", fileName);
+		return mdrList;
 	}
 }

@@ -10,7 +10,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class DetailsOfClientReport {
-
+	private int userId;
 	private int totalUsage;
 	private int passed;
 	private int failed;

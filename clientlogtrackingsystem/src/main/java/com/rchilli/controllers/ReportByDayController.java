@@ -12,22 +12,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.rchilli.entities.DetailsOfClientReport;
-import com.rchilli.services.ResumeLogsUserReportService;
+import com.rchilli.services.LogsUserReportService;
 
 @Controller
-public class ResumeLogsUserReportByDayController {
+public class ReportByDayController {
 	@Autowired
-	private ResumeLogsUserReportService resumeLogsMonthlyUserReportService;
-
+	private LogsUserReportService logsUserReportService;
+    
 	@GetMapping("/report")
-	
 	public Object getReport(@RequestParam("userId") int userId, @RequestParam("date") String date,ModelAndView mav) {
 		DetailsOfClientReport dcr=null;
-		dcr = resumeLogsMonthlyUserReportService.getReport(userId, date);
+		dcr = logsUserReportService.getReport(userId, date);
 		if(dcr==null) {
 			return ResponseEntity.status(HttpStatus.NO_CONTENT).body("data not found in details of Client report in controller");
 		}
-		
 		mav.addObject("DCR", dcr);
 		mav.addObject("date", date);
 		Date cd=new Date();

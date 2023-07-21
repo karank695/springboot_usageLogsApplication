@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html html xmlns:th="https://thymeleaf.org">
   <head>
-	  <link  th:href="@{/css/monthlyReport.css}" rel="stylesheet">
+	  <link  th:href="@{/css/mulUserIdView.css}" rel="stylesheet">
   </head>
   <body>
 	 <div class="headingBox">
 		<div id="left">
 			<span id="heading"> Usage Report @Month</span>
-			 <br><span class="userId">userId:&nbsp;186</span>
+		    <br>
 			 <span id="monthYear" th:text="${date}"></span>
 		</div>
 		<div id="date">
@@ -20,6 +20,7 @@
 	  <table>
 		  <caption>Usage Report</caption>
 		 <tr>
+			 <th>UserId</th>
 			 <th>Total Usage</th>
 			 <th>Pass Count</th>
 			 <th>Fail Count</th>
@@ -31,7 +32,8 @@
 			 <th>ParsingTimeGT4</th>
 			 <th>Usage</th>
 		     </tr> 
-             <tr>
+             <tr th:each="DCR: ${DCRList}">
+			 <td th:text="${DCR.getUserId()}"></td>
 			 <td th:text="${DCR.getTotalUsage()}"></td>
 			 <td th:text="${DCR.getPassed()}"></td>
 			 <td th:text="${DCR.getFailed()}"></td>

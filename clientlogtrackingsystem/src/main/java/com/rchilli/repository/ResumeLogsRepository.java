@@ -22,4 +22,5 @@ public interface ResumeLogsRepository extends CrudRepository<ResumeLogs, Integer
 	public List<ResumeLogs> findByMonthAndYear(@Param("userId") int userId,@Param("year") String year,@Param("month") String month);
 
 
+
 }

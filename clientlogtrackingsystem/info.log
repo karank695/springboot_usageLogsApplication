@@ -1,0 +1,35 @@
+2023-07-20T18:44:12.197+05:30  INFO 17684 --- [restartedMain] c.r.ClientlogtrackingsystemApplication   : Starting ClientlogtrackingsystemApplication using Java 17.0.7 with PID 17684 (C:\Users\karan\Pictures\gitRepository\p1_clientusage\clientlogtrackingsystem\target\classes started by karan in C:\Users\karan\Pictures\gitRepository\p1_clientusage\clientlogtrackingsystem)
+2023-07-20T18:44:12.199+05:30  INFO 17684 --- [restartedMain] c.r.ClientlogtrackingsystemApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-07-20T18:44:12.240+05:30  INFO 17684 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-07-20T18:44:12.245+05:30  INFO 17684 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-07-20T18:44:12.705+05:30  INFO 17684 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-20T18:44:12.752+05:30  INFO 17684 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 41 ms. Found 1 JPA repository interfaces.
+2023-07-20T18:44:12.964+05:30  INFO 17684 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-07-20T18:44:12.997+05:30  INFO 17684 --- [restartedMain] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2023-07-20T18:44:13.251+05:30  INFO 17684 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-07-20T18:44:13.258+05:30  INFO 17684 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-07-20T18:44:13.259+05:30  INFO 17684 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
+2023-07-20T18:44:13.316+05:30  INFO 17684 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-07-20T18:44:13.317+05:30  INFO 17684 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1071 ms
+2023-07-20T18:44:13.414+05:30  INFO 17684 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : ResumeLogs - Starting...
+2023-07-20T18:44:13.565+05:30  INFO 17684 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : ResumeLogs - Added connection com.mysql.cj.jdbc.ConnectionImpl@7c93fd37
+2023-07-20T18:44:13.566+05:30  INFO 17684 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : ResumeLogs - Start completed.
+2023-07-20T18:44:13.601+05:30  INFO 17684 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-20T18:44:13.644+05:30  INFO 17684 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
+2023-07-20T18:44:13.646+05:30  INFO 17684 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-07-20T18:44:13.757+05:30  INFO 17684 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-07-20T18:44:13.866+05:30  INFO 17684 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-07-20T18:44:13.913+05:30  WARN 17684 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+2023-07-20T18:44:14.073+05:30  INFO 17684 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-07-20T18:44:14.559+05:30  INFO 17684 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-20T18:44:14.561+05:30  INFO 17684 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-20T18:44:14.745+05:30  INFO 17684 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-07-20T18:44:15.065+05:30  WARN 17684 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-07-20T18:44:15.315+05:30  INFO 17684 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-07-20T18:44:15.348+05:30  INFO 17684 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-20T18:44:15.355+05:30  INFO 17684 --- [restartedMain] c.r.ClientlogtrackingsystemApplication   : Started ClientlogtrackingsystemApplication in 3.488 seconds (process running for 4.109)
+2023-07-20T18:44:44.078+05:30  INFO 17684 --- [RMI TCP Connection(10)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-07-20T18:44:44.089+05:30  INFO 17684 --- [RMI TCP Connection(10)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-07-20T18:44:44.093+05:30  INFO 17684 --- [RMI TCP Connection(10)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-07-20T18:44:44.097+05:30  INFO 17684 --- [RMI TCP Connection(10)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : ResumeLogs - Shutdown initiated...
+2023-07-20T18:44:44.102+05:30  INFO 17684 --- [RMI TCP Connection(10)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : ResumeLogs - Shutdown completed.

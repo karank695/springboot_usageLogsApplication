@@ -55,9 +55,10 @@
 		  color: rgb(0, 64, 64);
 		  font-size: 20px;
 	  }
-	  #footer{
-		  margin-top:550px;
-		  margin-left:10px;
+ #footer{
+		  position:absolute;
+		  bottom:20px;
+		  left:10px;
 	  }
 	  </style>
   </head>
@@ -65,7 +66,7 @@
 	 <div class="headingBox">
 		<div id="left">
 			<span id="heading"> Usage Report @Month</span>
-			 <br><span class="userId">userId:&nbsp;</span><span class="userId">186</span>
+			 <br><span class="userId">userId:&nbsp;186</span>
 			 <span id="monthYear" th:text="${date}"></span>
 		</div>
 		<div id="date">

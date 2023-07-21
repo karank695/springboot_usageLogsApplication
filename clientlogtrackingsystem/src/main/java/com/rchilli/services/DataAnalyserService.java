@@ -113,7 +113,7 @@ public class DataAnalyserService {
 		
 	    return dcr;
 	}
-	public DetailsOfClientReport dataProcess(List<ResumeLogs> listOfResumeLogs,int preUsage) {
+	public DetailsOfClientReport dataProcess(List<ResumeLogs> listOfResumeLogs,int userId) {
 		totalUsage=listOfResumeLogs.size();
 		boolean emailSent=false;
 		for(int i=0;i<listOfResumeLogs.size();i++) {
@@ -149,6 +149,7 @@ public class DataAnalyserService {
 					emailServiceImpl.sendSimpleMail(ed, mailContext, "warnEmailTemplate");
 					emailSent=true;
 				}
+				
 			}
 			if(e.getParsingTime()>4000) {
 				parsingTimeGt4++;
@@ -165,17 +166,9 @@ public class DataAnalyserService {
 					emailSent=true;
 				}
 			}
-			
-			
-		}
-		int perInc=0,perDec=0;
-        
-		if(totalUsage>=preUsage) {
-			perInc=(totalUsage-preUsage)*100/preUsage;
-		}else {
-			perDec=(preUsage-totalUsage)*100/preUsage;
 		}
 		DetailsOfClientReport dcr=new DetailsOfClientReport();
+		dcr.setUserId(userId);
 		dcr.setDoc(doc);
 		dcr.setFailed(failed);
 		dcr.setJd(jd);
@@ -185,6 +178,7 @@ public class DataAnalyserService {
 		dcr.setPdf(pdf);
 		dcr.setResume(resume);
 		dcr.setTotalUsage(totalUsage);
+		dcr.setUsage(usage);
 		totalUsage=0;
 		passed=0;
 		failed=0;
@@ -195,15 +189,7 @@ public class DataAnalyserService {
 	    pageCountGt5=0;
 		parsingTimeGt4=0;
 	    usage=null;
-		if(perInc>0) {
-			usage="+ "+perInc+"";
-		}else if(perDec>0) {
-			usage="- "+ perDec+"";
-		}
-		dcr.setUsage(usage);
-		perInc=0;
-		perDec=0;
 		
-		return dcr;
+	    return dcr;
 	}
 }
